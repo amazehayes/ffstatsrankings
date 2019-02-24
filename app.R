@@ -12,7 +12,7 @@ ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                             fluidPage(
                               fluidRow(
                                 column(11),
-                                column(1, paste("Last updated:",Sys.Date()))
+                                column(1, strong("Last updated:"),Sys.Date())
                               ),
                               br(),
                               dataTableOutput("rookie")
