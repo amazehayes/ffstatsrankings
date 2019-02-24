@@ -15,7 +15,8 @@ ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                                 column(1, strong("Last updated:"),Sys.Date())
                               ),
                               br(),
-                              dataTableOutput("rookie")
+                              dataTableOutput("rookie"),
+                              br(),br(),br(),br()
                             )
                  )
                  
