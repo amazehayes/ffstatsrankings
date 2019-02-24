@@ -11,7 +11,8 @@ ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                  tabPanel("Rookie",icon = icon("table"),
                             fluidPage(
                               fluidRow(
-                                column(11, strong("Last updated:"),Sys.Date())
+                                column(11),
+                                column(1, strong("Last updated:"),Sys.Date())
                               ),
                               br(),
                               dataTableOutput("rookie")
