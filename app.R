@@ -1,9 +1,12 @@
 library(shiny)
 library(DT)
 library(dplyr)
+library(googlesheets)
 
-sheetsdynasty <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT3b5Wzj-dGNkzY5ZwXfELV-RKo6BoCCfs7A6YyiLB6G-ZVmyv2U9zed2xcROyLLln7Lk_y4J7isgOU/pub?gid=1611480279&single=true&output=csv")
-sheetsdynasty <- sheetsdynasty %>% filter(Average > 0)
+key <- gs_key("1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE")
+rankings <- gs_title(key$sheet_title) %>% gs_read(ws = "Dynasty")
+
+
 
 ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                  header = tags$style(type="text/css", "body {padding-top: 70px;}"), collapsible = TRUE,
@@ -28,7 +31,7 @@ server <- function(input, output) {
    
   output$rookie <- renderDataTable({
     
-    sheetsdynasty
+    rankings
     
   }, rownames = FALSE, options = list(paging = FALSE, dom = "t")) 
   
