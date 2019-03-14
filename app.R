@@ -3,8 +3,6 @@ library(DT)
 library(dplyr)
 library(gsheet)
 
-rankings <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE/edit#gid=1611480279")
-
 ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                  header = tags$style(type="text/css", "body {padding-top: 70px;}"), collapsible = TRUE,
                  
@@ -28,7 +26,7 @@ server <- function(input, output) {
    
   output$rookie <- renderDataTable({
     
-    rankings
+    gsheet2tbl("https://docs.google.com/spreadsheets/d/1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE/edit#gid=1611480279")
     
   }, rownames = FALSE, options = list(paging = FALSE, dom = "t")) 
   
