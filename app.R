@@ -3,7 +3,8 @@ library(DT)
 library(dplyr)
 library(googlesheets)
 
-
+key <- gs_key("1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE")
+rankings <- gs_title(key$sheet_title) %>% gs_read_csv(ws = "Dynasty")
 
 ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                  header = tags$style(type="text/css", "body {padding-top: 70px;}"), collapsible = TRUE,
