@@ -3,6 +3,7 @@ library(DT)
 library(dplyr)
 library(googlesheets)
 
+gs_auth()
 key <- gs_key("1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE")
 rankings <- gs_title(key$sheet_title) %>% gs_read_csv(ws = "Dynasty")
 
