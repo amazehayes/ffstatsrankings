@@ -4,7 +4,7 @@ library(dplyr)
 library(googlesheets)
 
 gs_auth()
-rankings <- gs_title("FFS-2019 Rookie Rankings") %>% gs_read_csv(ws = "Dynasty")
+rankings <- googlehsheets::gs_title("FFS-2019 Rookie Rankings") %>% googlesheets::gs_read_csv(ws = "Dynasty")
 
 ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                  header = tags$style(type="text/css", "body {padding-top: 70px;}"), collapsible = TRUE,
