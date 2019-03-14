@@ -1,10 +1,9 @@
 library(shiny)
 library(DT)
 library(dplyr)
-library(googlesheets)
+library(gsheet)
 
-ss <- gs_key("1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE", lookup = FALSE)
-rankings <- gs_read(ss)
+rankings <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1PGCcFzsoXhofokFyuuJbsYv_JAo_GDTCalfLQtHgxuE/edit#gid=1611480279")
 
 ui <- navbarPage("FFStatistics Rankings", position = "fixed-top",
                  header = tags$style(type="text/css", "body {padding-top: 70px;}"), collapsible = TRUE,
